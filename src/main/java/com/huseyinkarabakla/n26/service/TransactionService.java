@@ -22,7 +22,8 @@ public class TransactionService
 
     public boolean saveTransaction(Transaction transaction)
     {
-        if (transaction.getTimestamp() >= Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() - SystemConstants.MINUTE_IN_MILISECONDS)
+        if (transaction.getTimestamp() >= Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() - SystemConstants.MINUTE_IN_MILISECONDS
+            && transaction.getTimestamp() < Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis())
         {
             storage.saveTransaction(transaction);
             return true;

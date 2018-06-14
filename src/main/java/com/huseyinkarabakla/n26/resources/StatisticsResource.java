@@ -6,10 +6,10 @@ public class StatisticsResource
     private final double avg;
     private final double max;
     private final double min;
-    private final double count;
+    private final long count;
 
 
-    public StatisticsResource(double sum, double avg, double max, double min, double count)
+    public StatisticsResource(double sum, double avg, double max, double min, long count)
     {
         this.sum = sum;
         this.avg = avg;
@@ -43,7 +43,7 @@ public class StatisticsResource
     }
 
 
-    public double getCount()
+    public long getCount()
     {
         return count;
     }
