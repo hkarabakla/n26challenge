@@ -1,10 +1,12 @@
 package com.huseyinkarabakla.n26.service;
 
+import com.huseyinkarabakla.n26.constants.SystemConstants;
 import com.huseyinkarabakla.n26.model.Transaction;
 import com.huseyinkarabakla.n26.storage.Storage;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 @Service
 public class TransactionService
@@ -18,11 +20,14 @@ public class TransactionService
     }
 
 
-    public void saveTransaction(Transaction transaction)
+    public boolean saveTransaction(Transaction transaction)
     {
-        if (transaction.getTimestamp() >= new Date().getTime() - 60000)
+        if (transaction.getTimestamp() >= Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() - SystemConstants.MINUTE_IN_MILISECONDS)
         {
             storage.saveTransaction(transaction);
+            return true;
         }
+
+        return false;
     }
 }

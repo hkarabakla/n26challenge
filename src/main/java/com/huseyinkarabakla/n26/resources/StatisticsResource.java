@@ -2,11 +2,11 @@ package com.huseyinkarabakla.n26.resources;
 
 public class StatisticsResource
 {
-    private double sum;
-    private double avg;
-    private double max;
-    private double min;
-    private double count;
+    private final double sum;
+    private final double avg;
+    private final double max;
+    private final double min;
+    private final double count;
 
 
     public StatisticsResource(double sum, double avg, double max, double min, double count)

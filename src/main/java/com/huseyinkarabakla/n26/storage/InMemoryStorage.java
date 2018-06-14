@@ -9,7 +9,7 @@ public class InMemoryStorage implements Storage
 {
     private final int WINDOW_SIZE = 60 * 1000;
     private final int ARRAY_SIZE = 60 * 1000 * 2;
-    private Statistics[] statisticsArray = new Statistics[ARRAY_SIZE];
+    private final Statistics[] statisticsArray = new Statistics[ARRAY_SIZE];
     private final Object LOCK = new Object();
 
 
